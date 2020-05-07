@@ -1,17 +1,15 @@
-var express = require("express"),
-    router = express.Router(),
-    db = require("../models"),
-    helpers = require("../helpers/todos");
-    
-// INDEX/CREATE ROUTES
-router.route('/')
-    .get(helpers.getTodos)
-    .post(helpers.createTodo);
-    
-// SHOW/UPDATE/DELETE ROUTES
-router.route('/:todoId')
-    .get(helpers.showTodo)
-    .put(helpers.updateTodo)
-    .delete(helpers.deleteTodo);
+var express = require('express');
+var router = express.Router();
+var db = require("../models");
+var helpers = require("../helpers/todos");
 
+router.route('/')
+ .get(helpers.getTodos)
+ .post(helpers.createTodo)
+ 
+router.route('/:todoId')
+  .get(helpers.getTodo)
+  .put(helpers.updateTodo)
+  .delete(helpers.deleteTodo)
+  
 module.exports = router;
